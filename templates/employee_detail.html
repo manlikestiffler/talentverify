@@ -1,0 +1,18 @@
+{% extends './main.html' %}
+
+{% block content %}
+
+
+<main class="main">
+    <div class="layout__body" >
+      <h4>{{employee.employee_name}}</h4>
+      <br>
+      <h2 style="color:green">Provide the departments, duties and roles in which the employee worked for at this company.Include dates</h2>
+      <hr>
+      <br>
+      <p>{{employee.description|linebreaks}}</p>
+    </div>  
+      
+</main>
+
+{% endblock %}

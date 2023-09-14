@@ -1,0 +1,49 @@
+
+        <h5 style="
+        padding-left:100px;
+        padding-top:30px;
+        font-size:20px;
+        color:grey;
+        ">
+        {{employees_count}} employees available</h5>
+        <br>
+        <div class="display_table">
+          <table class="table table-success table-striped" style=" 
+            border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px;
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-bottom: 20px;
+            box-shadow: 12px 12px 20px 6px #2e6da4;
+            font-size: 15px;
+            text-align: center;
+            width: 95%;
+            margin: auto;
+            text-align: center;
+          ">
+          <thead>
+            <tr class="table-info">
+            <th>SLUG</th>
+            <th>NAME</th>
+            <th>COMPANY</th>
+            <th>EMPLOYEE ID</th>
+            <th>DATE EMPLOYED</th>
+            <th>DATE LEFT</th>
+            <th>LAST UPDATED</th>
+            <th>DATE CREATED</th>
+            </tr>
+        </thead>
+        {% for employee in employees %}
+          <tr>
+            <td>{{employee.slug}}</td>
+            <td><a href="{{employee.get_absolute_url}}"  style="color:red;">{{employee.employee_name}}</a></td>
+            <td>{{employee.company.company_name}}</td>
+            <td><a href="{% url 'base:employee-update-detail' slug=employee.slug %}"  style="color:red;">{{employee.employee_ID}}</a></td>
+            <td>{{employee.date_employed}}</td>
+            <td>{{employee.date_left}}</td>
+            <td>{{employee.updated|timesince}}</td>
+            <td>{{employee.created|timesince}}</td>
+          </tr>
+        {% endfor %}
+          </table>
+        </div>

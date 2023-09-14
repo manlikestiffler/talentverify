@@ -1,0 +1,41 @@
+<div class = "table" style="padding-top: 50px;">
+    <table class="table table-success table-striped" style=" 
+    border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 20px;
+        box-shadow: 12px 12px 20px 6px #2e6da4;
+        font-size: 13px;
+        text-align: center;
+        width: 100%;
+        margin: auto;
+        text-align: center;
+    ">
+    <thead>
+        <tr class="table-info">
+        <th>SLUG</th>
+        <th>COMPANY</th>
+        <th>CONTACT PERSON(HR MANAGER)</th>
+        <th> COMPANY CONTACT</th>
+        <th>EMAIL ADDRESS</th>
+        <th>DATE OF REGISTRATION</th>
+        <th>REGISTRATION NUMBER</th>
+        <th>DATE CREATED</th>
+        </tr>
+    </thead>
+    {% for company in companies %}
+        <tr>
+        <td>{{company.slug}}</td>
+        <td><a href="{% url 'base:home' %}?q={{company.company_name}}"  style="color:red;">{{company.company_name}}</a></td>
+        <td>{{company.contact_person}}</td>
+        <td>{{company.contact}}</td>
+        <td>{{company.email_address}}</td>
+        <td>{{company.reg_date}}</td>
+        <td>{{company.reg_number}}</td>
+        <td>{{company.created|timesince}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+</div>
